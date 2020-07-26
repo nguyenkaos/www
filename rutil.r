@@ -209,3 +209,43 @@ get_syms_w <- function(){
 }
 
 
+
+############# TIME ##############
+
+get_toDate3 <- function(toDate){
+    ## convert 31/01/2010 => 20100131
+    if ( !grepl("/", toDate) ) {
+        return(toDate)
+    }
+    dday = substring(toDate, 1,2)
+    dmonth = substring(toDate, 4,5)
+    dyear = substring(toDate, 7,10)  
+    toDate3 = paste(dyear,dmonth,dday,sep="")
+    return(toDate3)
+}
+
+get_toDate <- function(toDate){
+    ## convert 20100131 => 31/01/2010 
+    if ( grepl("/", toDate) ) {
+        return(toDate)
+    }
+    dday = substring(toDate, 7,8)
+    dmonth = substring(toDate, 5,6)
+    dyear = substring(toDate, 1,4)  
+    toDate0 = paste(dday, dmonth, dyear, sep="/")
+    return(toDate0)
+}
+
+get_timestamp <- function(toDate){
+    ## convert 31/01/2010  => ts
+    my_ts = as.numeric(as.POSIXct(toDate, format="%d/%m/%Y"))
+    return(my_ts)
+}
+
+get_timestamp_from_toDate3 <- function(toDate){
+    ## convert 20100131  => ts
+    my_ts = as.numeric(as.POSIXct(toDate, format="%Y%m%d"))
+    return(my_ts)
+}
+
+
