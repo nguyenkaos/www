@@ -210,7 +210,7 @@ get_syms_w <- function(){
 
 
 
-############# TIME ##############
+############# DATE & TIME ##############
 
 get_toDate3 <- function(toDate){
     ## convert 31/01/2010 => 20100131
