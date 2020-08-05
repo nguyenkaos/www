@@ -85,7 +85,7 @@ get_data_symbol <- function(symbol, toDate, nbDay=60){
 
   for ( ii in 1:4 ){
       tryCatch({
-          r <- GET(paste('https://api.vietstock.vn/ta/history?symbol=',symbol,'&resolution=D&from=',fromdate,'&to=',todate, sep=""), timeout(60),add_headers('User-Agent'= 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Mobile Safari/537.36'))
+          r <- GET(paste('https://api.vietstock.vn/ta/history?symbol=',symbol,'&resolution=D&from=',fromdate,'&to=',todate, sep=""), timeout(250),add_headers('User-Agent'= 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Mobile Safari/537.36'))
           aa = content(r) 
           if (length(aa) < 1 ){
               return(res)
@@ -132,7 +132,7 @@ check_result_symbol <- function(symbol,toDate,postDay=40){
             if(ok == 0) {
                 print(paste("in check_result_symbol ", Sys.time()))
                 tryCatch({
-                    r <- GET(paste('https://api.vietstock.vn/ta/history?symbol=',symbol,'&resolution=D&from=',fromdate,'&to=',todate, sep=""), timeout(45), add_headers('User-Agent'= 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Mobile Safari/537.36'))
+                    r <- GET(paste('https://api.vietstock.vn/ta/history?symbol=',symbol,'&resolution=D&from=',fromdate,'&to=',todate, sep=""), timeout(250), add_headers('User-Agent'= 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Mobile Safari/537.36'))
                     aa = content(r) 
                     if (length(aa) < 1 ){
                         return(res)
@@ -167,7 +167,7 @@ check_today_is_trade <- function(toDate){
     
     for ( ii in 1:20 ){
       tryCatch({
-          r <- GET(paste('https://api.vietstock.vn/ta/history?symbol=AAA&resolution=D&from=',fromdate,'&to=',todate, sep=""), timeout(60), add_headers('User-Agent'= 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Mobile Safari/537.36'))
+          r <- GET(paste('https://api.vietstock.vn/ta/history?symbol=AAA&resolution=D&from=',fromdate,'&to=',todate, sep=""), timeout(250), add_headers('User-Agent'= 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Mobile Safari/537.36'))
         aa = content(r)
         if (length(aa) < 1 ){
             return(res)
