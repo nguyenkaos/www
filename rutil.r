@@ -248,4 +248,9 @@ get_timestamp_from_toDate3 <- function(toDate){
     return(my_ts)
 }
 
+get_toDate_list <- function(sym, toDate){ 
+    dataraw = get_data_symbol(sym, toDate)
+    time_sell_text = format(as.Date(as.POSIXct(dataraw[,6], origin="1970-01-01")),"%d/%m/%Y")
+    return(time_sell_text)
+}
 
