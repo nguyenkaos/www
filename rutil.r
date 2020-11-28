@@ -224,6 +224,18 @@ get_toDate3 <- function(toDate){
     return(toDate3)
 }
 
+get_toDate2 <- function(toDate){
+    ## convert 31/01/2010 => 2010-01-31
+    if ( !grepl("/", toDate) ) {
+        return(toDate)
+    }
+    dday = substring(toDate, 1,2)
+    dmonth = substring(toDate, 4,5)
+    dyear = substring(toDate, 7,10)  
+    toDate3 = paste(dyear,dmonth,dday,sep="-")
+    return(toDate3)
+}
+
 get_toDate <- function(toDate){
     ## convert 20100131 => 31/01/2010 
     if ( grepl("/", toDate) ) {
