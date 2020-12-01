@@ -96,7 +96,11 @@ get_data_symbol <- function(symbol, toDate, nbDay=60){
           if (length(vol) < 2){
             return(res)
           }
-          close = aa[['c']] / 1000
+          # close = aa[['c']] / 1000
+          close = aa[['c']]
+          if (close[1] > 600){
+            close = aa[['c']] / 1000
+          }
           high = aa[['h']] / 1000
           low = aa[['l']] / 1000
           open = aa[['o']] / 1000
