@@ -69,7 +69,15 @@ log_dev <- function(text){
  } );   
 }
 
-
+log_dev_important <- function(text){ 
+    tryCatch({ 
+        TELEGRAM_API = "https://api.telegram.org/bot726898103:AAGNsQGgF81ok7fIZKlm2vC-ij8cs38G3LY/sendMessage?chat_id=-479724439&parse_mode=Markdown&text="
+        url_telegram = paste(TELEGRAM_API, text, sep="")
+        r = GET(url_telegram)
+    }, error = function(e) { 
+   print(text)
+ } );   
+}
 
 
 ###########################################
