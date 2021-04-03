@@ -61,7 +61,8 @@ checktime <- function(func,TimeOut=9999){
 ### TELEGRAM => bot logmo
 log_dev <- function(text){ 
     tryCatch({ 
-        TELEGRAM_API = "https://api.telegram.org/bot726898103:AAGNsQGgF81ok7fIZKlm2vC-ij8cs38G3LY/sendMessage?chat_id=350717638&parse_mode=Markdown&text="
+        #TELEGRAM_API = "https://api.telegram.org/bot726898103:AAGNsQGgF81ok7fIZKlm2vC-ij8cs38G3LY/sendMessage?chat_id=350717638&parse_mode=Markdown&text="
+        TELEGRAM_API = "https://api.telegram.org/bot726898103:AAGNsQGgF81ok7fIZKlm2vC-ij8cs38G3LY/sendMessage?chat_id=-544875225&parse_mode=Markdown&text="
         url_telegram = paste(TELEGRAM_API, text, sep="")
         r = GET(url_telegram)
     }, error = function(e) { 
