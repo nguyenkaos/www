@@ -127,6 +127,18 @@ get_data_symbol <- function(symbol, toDate, nbDay=60){
 }
 
 
+get_value_buy_vn <- function(symbol, toDate){ 
+    tryCatch({
+        x = get_data_symbol(symbol, toDate)
+        return(x[dim(x)[1], 1])
+   }, error = function(e) {
+        passs = 1
+   });
+   return(NA)
+}
+ 
+
+
 ## Get Result for a stock Predict in VIETNAM Market
 check_result_symbol <- function(symbol,toDate,postDay=40){
     # toDate = "dd/mm/yyy"
